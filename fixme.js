@@ -1,5 +1,3 @@
-// You will use this Object for the answers
-// DO NOT CHANGE THIS SECTION
 var adventuringParty = {
     wizard: {
         name: "Gandalf",
@@ -31,18 +29,21 @@ var adventuringParty = {
 // This function lists all characters in the party
 function listCharacters() {
     console.log("Characters:");
-    for(obj in party) {
-        console.log(" * " + party[obj].name);
+    for(obj in adventuringParty) {
+        console.log(" * " + adventuringParty[obj].name)};
     
 }
 
 // This function should list all weapons for the character
+var wizard=adventuringParty.wizard
+var warrior=adventuringParty.warrior
 function listWeapons(character) {
     console.log("Listing weapons for " + character.name + ":");
     for(i in character.weapons) {
-        var weapon = character.weapons[i];
-        console.log(" * " . weapon[name]);
+        var weapon = character.weapons[i].name;
+        console.log(" * " + weapon);
     }
+    
 }
 
 // This function should attack with the specified weapon
@@ -52,36 +53,20 @@ function weaponAttack(character, weaponName) {
     var maxDamage;
     for(i in character.weapons) {
         var weapon = character.weapons[i];
-        if(weapon.name == weaponName.toUpperCase()) {
+        if(weapon.name == weaponName) {
             maxDamage = weapon.damage;
         }
     }
     console.log("He hits for " + Math.round( Math.random() * maxDamage ) + " damage");
 }
 
-// Run the functions
+
+
+
+
+
 listCharacters(adventuringParty);
 listWeapons(wizard);
 listWeapons(warrior);
-weaponAttack("Warrior", "axe");
-weaponAttack("Wizard", "STAFF");
-
-
-/*
-EXAMPLE OUTPUT:
-
-
-Characters:                                                                                                                                                                                                  
- * Gandalf                                                                                                                                                                                                   
- * Conan                                                                                                                                                                                                     
-Listing weapons for Gandalf:                                                                                                                                                                                 
- * Staff                                                                                                                                                                                                     
- * Dagger                                                                                                                                                                                                    
-Listing weapons for Conan:                                                                                                                                                                                   
- * Axe                                                                                                                                                                                                       
- * Bow                                                                                                                                                                                                       
-Conan attacks with his axe                                                                                                                                                                                   
-He hits for 17 damage                                                                                                                                                                                        
-Gandalf attacks with his STAFF                                                                                                                                                                               
-He hits for 3 damage         
- */
+weaponAttack(warrior, "Axe");
+weaponAttack(wizard, "Staff");
